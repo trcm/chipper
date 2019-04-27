@@ -1,0 +1,61 @@
+name:                chipper
+version:             0.0.0
+description:         chip 8 emulator
+synopsis:            chip 8 emulator
+homepage:            https://github.com/trcm/chipper
+bug-reports:         https://github.com/trcm/chipper/issues
+license:             MIT
+license-file:        LICENSE
+author:              Trcm
+maintainer:          midson.trc@gmail.com
+copyright:           2019 Trcm
+category:            Game
+build-type:          Simple
+extra-doc-files:     README.md
+                   , CHANGELOG.md
+cabal-version:       1.24
+tested-with:         GHC == 8.4.3
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Chipper
+                       
+  ghc-options:         -Wall
+  build-depends:       base
+                     , lens
+                     , mtl
+                     , sdl2
+                     , transformers
+                     , text
+                     , vector
+                     
+  default-language:    Haskell2010
+  
+
+executable chipper
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -Wall -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , lens
+                     , chipper
+                     , mtl
+                     , sdl2
+                     , transformers
+                     , text
+                     , vector
+                     
+  default-language:    Haskell2010
+  
+
+test-suite chipper-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , chipper
+                     
+  ghc-options:         -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+  
+
