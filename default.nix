@@ -1,5 +1,5 @@
-{ mkDerivation, base, lens, mtl, sdl2, stdenv, text, transformers
-, vector
+{ mkDerivation, base, bytestring, lens, mtl, sdl2, stdenv, text
+, transformers, vector
 }:
 mkDerivation {
   pname = "chipper";
@@ -8,13 +8,13 @@ mkDerivation {
   isLibrary = true;
   isExecutable = true;
   libraryHaskellDepends = [
-    base lens mtl sdl2 text transformers vector
+    base bytestring lens mtl sdl2 text transformers vector
   ];
   executableHaskellDepends = [
-    base lens mtl sdl2 text transformers vector
+    base bytestring lens mtl sdl2 text transformers vector
   ];
   testHaskellDepends = [ base ];
-  homepage = "https://github.com/kowainik/chipper";
-  description = "chip 8";
+  homepage = "https://github.com/trcm/chipper";
+  description = "chip 8 emulator";
   license = stdenv.lib.licenses.mit;
 }

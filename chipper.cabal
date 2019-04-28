@@ -19,9 +19,12 @@ tested-with:         GHC == 8.4.3
 library
   hs-source-dirs:      src
   exposed-modules:     Chipper
+                       Chipper.Cpu
+                       Chipper.Opcodes
                        
   ghc-options:         -Wall
   build-depends:       base
+                     , bytestring
                      , lens
                      , mtl
                      , sdl2
@@ -36,7 +39,11 @@ executable chipper
   hs-source-dirs:      app
   main-is:             Main.hs
   ghc-options:         -Wall -threaded -rtsopts -with-rtsopts=-N
+  -- other-modules:       
+  --                      Chipper.Cpu
+  --                      Chipper.Opcodes
   build-depends:       base
+                     , bytestring
                      , lens
                      , chipper
                      , mtl
